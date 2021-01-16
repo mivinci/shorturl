@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+}
+
+a {
+  color: #6c6c6c;
+  text-decoration: none;
+}
+
+header {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+header svg {
+  margin-right: 8px
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  color: #6c6c6c;
+}
+
+.main {
+  max-width: 800px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form {
+  position: relative;
+  width: 90%;
+  animation: .5s showup;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+}
+
+.input input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 20px;
+  flex: 1;
+  border: 2px solid grey;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.input i {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  color: grey;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.input i:hover {
+  color: grey;
+}
+
+.input button {
+  padding: 0 24px;
+  font-size: 20px;
+  border: none;
+  border-radius: 0 10px 10px 0;
+  background-color: grey;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .input i {
+    right: 10px;
+  }
+  .input button {
+    padding: 0 10px;
+  }
+}
+
+.input select {
+  display: none;
+
+}
+
+.text {
+  padding: 20px 0;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+}
+
+.text a {
+  margin-right: 5px;
+}
+
+.error,
+.error a {
+  color: red;
+  text-decoration: none;
+}
+
+@keyframes showup {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.ttl {
+  position: relative;
+}
+
+.ttl .select {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 45px;
+  width: 100px;
+  text-align: center;
+  border: 2px solid grey;
+  border-radius: 0 0px 10px 10px;
+  background-color: #fff;
+  user-select: none;
+}
+
+.ttl .select .option {
+  padding: 5px 10px;
+  color: grey;
+  cursor: pointer;
+}
+
+.ttl .select .option:hover {
+  color: #fff;
+  background-color: grey;
+}
+
+.ttl .select .selected {
+  color: #fff;
+  background-color: grey;
+}
+
+.ttl .showup {
+  display: block;
+}
+
+#result {
+  margin-top: 50px;
+}
+
+.error {
+  color: red;
+}

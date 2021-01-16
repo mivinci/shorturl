@@ -109,6 +109,8 @@ func (l *Link) Cure(b *bolt.Bucket, cache *ttl.Cache, newTTL time.Duration) erro
 	l.Mtime = time.Now()
 	l.TTL = newTTL
 	buf, _ := json.Marshal(l)
+	mtx.Lock()
+	defer mtx.Unlock()
 	if err := cache.Add(l.Alias, l, newTTL); err != nil {
 		return err
 	}

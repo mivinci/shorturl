@@ -21,6 +21,7 @@ var (
 )
 
 func main() {
+	flag.Parse()
 	link.Init(*dbpath)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {

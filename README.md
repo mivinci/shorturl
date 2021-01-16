@@ -2,7 +2,7 @@
 
 ## Try it out
 
-Demo site: [https://u.xjj.pub](https://l.xjj.pub)
+Demo site: [https://l.xjj.pub](https://l.xjj.pub)
 
 Or you may wanna offer me a nicer and shorter domain 🙃.
 

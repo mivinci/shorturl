@@ -140,8 +140,6 @@ func AddLink(origin, ip string, ttl time.Duration) (*Link, error) {
 		link.TTL = ttl
 		link.Ctime = time.Now()
 		link.Mtime = link.Ctime
-
-		log.Printf("new link: %v\n", link)
 		// codec
 		buf, err := json.Marshal(link)
 		if err != nil {
@@ -153,6 +151,7 @@ func AddLink(origin, ip string, ttl time.Duration) (*Link, error) {
 			log.Printf("add link: %s cache failed since %s, skipped\n", link.Origin, err)
 		}
 		mtx.Unlock()
+		log.Printf("new link: %v\n", link)
 		// database
 		return b.Put([]byte(link.Origin), buf)
 	})
@@ -161,12 +160,12 @@ func AddLink(origin, ip string, ttl time.Duration) (*Link, error) {
 
 func GetLink(alias string) (*Link, error) {
 	mtx.RLock()
+	defer mtx.RUnlock()
 	v, err := cache.Get(alias)
 	if err != nil {
 		log.Printf("get link: %s (cache miss)\n", alias)
 		return nil, err
 	}
-	mtx.RUnlock()
 	log.Printf("get link: %s (cache)\n", alias)
 	return v.(*Link), nil
 }
